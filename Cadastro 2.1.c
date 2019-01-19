@@ -13,15 +13,19 @@ typedef struct{
 		  }Produto;
 		  
 		  	
-		  	//função sem retorno
 		  	
-		  	int cadprod(void)
+		  	
+		  	int cadprod(int contador_arc)
 		  	{
 
-			Produto cadastro[100];
-			int i = 0;
+			Produto produtos[1000];
+			
+			int contador;
+			contador = contador_arc;
+			int i = contador;
 			char opcao;
-			char sair;
+			char sair, sair2;
+	
 			
 				do
 				{
@@ -29,73 +33,114 @@ typedef struct{
 							
 							
 								printf("\n Nome do produto: \n");
-	                    		scanf("%s", &cadastro[i].nome);
+	                    		scanf("%s", &produtos[i].nome);
 	                   			getchar();
 	                   			
 	                   			
 	                   			printf("\nDigite o numero de identificação do produto: \n");
-			                    scanf("%i", &cadastro[i].ID);
+			                    scanf("%i", &produtos[i].ID);
 			                    getchar();
 			                    
 			                    
 			                    printf("\n Tipo do produto: \n");
-					            scanf("%s", &cadastro[i].tipo);
+					            scanf("%s", &produtos[i].tipo);
 					            getchar();
 					            
 					            
 					            printf("\nQuantidade: \n");
-			                    scanf("%i", &cadastro[i].quantidade);
+			                    scanf("%i", &produtos[i].quantidade);
 			                    getchar();
 			                    
 			                    
 			                    printf("\n Preço: \n");
-			                    scanf("%f", &cadastro[i].preco);
+			                    scanf("%f", &produtos[i].preco);
 			                    getchar();
 			                    
 			                    
 			                    printf("\n validade do produto: \n");
-			                    scanf("%s", &cadastro[i].validade);
+			                    scanf("%s", &produtos[i].validade);
 			                    getchar();	
 			                    
 			                    
 			                    		//Imprimindo no arquivo e na tela
 			                    		
-			                    		printf("\n\n\nNome do produto: %s\nID: %i\nTipo: %s\nPreço: %f\nValidade: %s\nQuantidade: %i\n", cadastro[i].nome, cadastro[i].ID, cadastro[i].tipo, cadastro[i].preco, cadastro[i].validade, cadastro[i].quantidade);				            			
+			                    		printf("\n\n\nNome do produto: %s\nID: %i\nTipo: %s\nPreço: %f\nValidade: %s\nQuantidade: %i\n", produtos[i].nome, produtos[i].ID, produtos[i].tipo, produtos[i].preco, produtos[i].validade, produtos[i].quantidade);				            			
 				            			
-				            			printf("\n\nCadastro realizado com sucesso\n\n");
+				            			printf("\n\n cadastro de produto realizado com sucesso\n\n");
 
-										printf("Cadastrar novo produto? ( digite 's' para sim e 'n' para voltar oa menu anterior)");
-										scanf("%c", &opcao);
-										getchar();
+										
 
-										switch(opcao)
+										do
 										{
-											case 's':
-											i++;
-											break;
-
-											case 'n':
-											sair = 'x';
-											break;
-
-											default:
-											printf("opção invalida!");
-											break;
+											printf("Cadastrar novo produto? ( digite 's' para sim e 'x' para voltar oa menu anterior)");
+											scanf("%c", &opcao);
+											getchar();
 											
-										};
+											switch(opcao)
+											{
+												case 's':
+												i++;
+												sair2 = 'x';
+												break;
+	
+												case 'x':
+												sair = 'x';
+												sair2 = 'x';
+												contador=+i;
+												break;
+	
+												default:
+												printf("opcao invalida!");
+												sair2 = 'f';
+													
+											};
+												
+										}while(sair2 != 'x');
+										
 				            			
 				            				
 				}while(sair != 'x');
 				
-			                    							
-									                    
 			return 0;	
 		  		
 			  }
 			  
+			  
+			  
+			  
+			  
 			 int main()
 			 {
-			 	cadprod();
+			 	char menu;
+			 	char sair;
+			 	int contador_arc = contador_arc + 0;
+			 	
+			 		do
+			 		{
+			 			printf("\n1-Para cadastro de produto\n2-Estoque\n'x'-Para sair\n");
+			 			scanf("%c", &menu);
+			 			getchar();
+			 			
+			 			switch(menu)
+			 			{
+			 				case '1':
+			 					cadprod(contador_arc);
+			 					break;
+			 				
+			 				case '2':
+			 					break;
+			 					
+			 				case 'x':
+			 					sair = 'x';
+			 					break;
+			 				
+			 				default:
+			 					printf("Opcao invalida!");
+			 					
+			 				}
+			 				
+					 }while(sair != 'x');
+			 
 			 	return 0;
 			 }
 		  	
