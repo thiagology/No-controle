@@ -5,8 +5,8 @@
 //struct com as informações dos produtos
 typedef struct{
           char nome[20];
-	  int ID;
-	  char tipo[20];
+	      int ID;
+	      char tipo[20];
           int quantidade;
           float preco;
           char validade[10];
@@ -66,6 +66,7 @@ typedef struct{
 
 										printf("Cadastrar novo produto? ( digite 's' para sim e 'n' para voltar oa menu anterior)");
 										scanf("%c", &opcao);
+										getchar();
 
 										switch(opcao)
 										{
@@ -74,7 +75,7 @@ typedef struct{
 											break;
 
 											case 'n':
-											sair = 'sair';
+											sair = 'x';
 											break;
 
 											default:
@@ -84,7 +85,7 @@ typedef struct{
 										};
 				            			
 				            				
-				}while(sair == 'sair');
+				}while(sair != 'x');
 				
 			                    							
 									                    
@@ -92,7 +93,11 @@ typedef struct{
 		  		
 			  }
 			  
-			 
+			 int main()
+			 {
+			 	cadprod();
+			 	return 0;
+			 }
 		  	
 		  	
 		  	
