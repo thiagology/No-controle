@@ -49,10 +49,10 @@ int main()
     char login1[20], senha1[20];
     int chek = 0;
 
-      while(chek == 0)
+      do
       {
           printf("\nUsuario: ");
-          scanf("%s",login1); 
+          scanf("%s", login1); 
           if (strcmp(login.usuario, login1) == 0) 
           {
               printf("Senha: ");
@@ -72,7 +72,7 @@ int main()
           {
             printf("Login Incorreto. Tente novamente:\n");
           }      
-      }
+      }while(chek == 0);
     
 
 
@@ -118,7 +118,7 @@ do
     do
     {
       int op;
-      printf("\n1. Mudar Preços\n2. Adicionar/Remover Produtos\n3. Balanço de vendas e Lucros\n0.Sair\n");
+      printf("\n1. Mudar Precos\n2. Adicionar/Remover Produtos\n3. Balanco de vendas e Lucros\n0. Sair\n");
       scanf("%i", &op);
 
       switch(op)
@@ -152,7 +152,7 @@ do
   while(fim == 1)
   {
     int ses = 1;
-    printf("\nAperte 0 para encerrar sessao ou 1 para voltar.\n");
+    printf("\nAperte 0 para encerrar sessao.\n");
     scanf("%i", &ses);
     if (ses == 0)
     {
